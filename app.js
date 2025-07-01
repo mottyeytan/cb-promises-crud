@@ -1,8 +1,8 @@
-import {readFile, writeFile, appendFile} from "fs"
-import {createInterface} from "readline"
+const { createInterface } = require("readline");
 
-import {createStudent} from "./modules/create.js"
-import {readData} from "./modules/read.js"
+const { createStudent } = require("./modules/create.js");
+const { readData } = require("./modules/read.js");
+const { updateData } = require("./modules/update.js");
 
 
 console.log("welcome to school management system")
@@ -28,6 +28,14 @@ rl.question("inpout your answer: ", (option) => {
     else if(option === "2"){
         readData()
         rl.close();
+    }
+    else if(option === "3"){
+        rl.question("enter student id: ", (id) =>{
+            rl.question("enter the info you want to change (only one value): ", (data) =>{
+                updateData(id, data);
+                rl.close();
+            })
+        })
     }
 })
 // createStudent({name: "John", age: 20, class: "10th"})
