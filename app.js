@@ -1,8 +1,9 @@
 import {readFile, writeFile, appendFile} from "fs"
 import {createInterface} from "readline"
 
-
 import {createStudent} from "./modules/create.js"
+import {readData} from "./modules/read.js"
+
 
 console.log("welcome to school management system")
 console.log("choose from the following options:")
@@ -23,6 +24,10 @@ rl.question("inpout your answer: ", (option) => {
             createStudent(input)
             rl.close();
         })
+    }
+    else if(option === "2"){
+        readData()
+        rl.close();
     }
 })
 // createStudent({name: "John", age: 20, class: "10th"})
